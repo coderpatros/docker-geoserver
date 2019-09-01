@@ -1,0 +1,14 @@
+version: "3"
+services:
+  geoserver:
+    build:
+      context: .
+    ports:
+      - "8080"
+
+  sut:
+    build:
+      context: ./tests
+      dockerfile: Dockerfile
+    depends_on:
+      - geoserver
